@@ -1,29 +1,31 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import connectDB from './config/db'
-import routes from './routes'
+import express from 'express';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import swaggerOptions from './config/swagger';
 import morganMiddleware from './middlewares/logger';
 import errorHandler from './middlewares/errorHandler';
+import routes from './routes';
 
-dotenv.config()
+// Initialize express
+const app = express();
 
+// Setup swagger-jsdoc
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
+// Serve Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-const app = express()
-
-// morgan for logging requests
+// Use morgan for logging HTTP requests
 app.use(morganMiddleware);
 
-app.use(express.json())
+// Your routes
+app.use('/api', routes); // Example route
 
-connectDB()
-
-app.use('/api', routes)
-
+// Use error handling middleware
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000
-
+// Start the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+  console.log(`Server running on port ${PORT}`);
+});

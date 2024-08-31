@@ -19,11 +19,12 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(morganMiddleware);
 
 // Your routes
-app.use('/api', routes); // Example route
+//app.use('/api', routes); // Example route WTF is an example route bruh?
+
+app.use('/', routes);
 
 // Use error handling middleware
 app.use(errorHandler);
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -1,15 +1,19 @@
+# Troubleshooting 
 
-Can someone check this issue i am having with the command:
+## Can someone check this issue i am having with the command:
 curl -X POST http://localhost:5000/api/login -H "Content-Type: application/json" -d '{"username": "deep", "password": "deep123"}'
 
-Possible checks:
-1.Database name 
-2.Collection name
-3.Hash Cross Check
-All the properties are checked on my system but you should try locally
+### Possible checks:
+- **1.Database name** 
+- **2.Collection name**
+- **3.Hash Cross Check**
+- **Any others you can find**
+- All the properties are checked on my system but you should try locally
 
-
+#### Script for db
+```bash
 use SIH_test;
+
 db.users.insertMany([
   {
     username: 'omkar',
@@ -37,4 +41,9 @@ db.users.insertMany([
     role: 'superadmin'
   }
 ]);
+
+
+
+
+
 

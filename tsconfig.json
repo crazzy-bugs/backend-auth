@@ -8,7 +8,12 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    //"typeRoots": ["@types", "node_modules/@types"],  for @types/index.d.ts
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+    //"typeRoots": ["./node_modules/@types", "./types"], //chatgpt full bkchodi krta hai  
+    //"types": ["node", "@types/express"], 
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

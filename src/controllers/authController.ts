@@ -30,8 +30,10 @@ export const login = async (req: Request, res: Response) => {
     // const users = await User.find();
     // console.log('Users Collection:', users);
 
-    const userCollection = db.db.collection('users'); 
-    console.log('Users Collection:', await userCollection.find().toArray()); 
+    const userCollection = db.collection('users'); 
+    // console.log(userCollection)
+    const userx = await userCollection.find().toArray()
+    console.log('Users Collection:', userx ); 
 
 
     const user = await User.findOne({ username }).exec();
@@ -50,7 +52,8 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { id: user._id, role: user.role }, 
-      process.env.JWT_SECRET as string,
+      // process.env.JWT_SECRET as string,
+      'asdf',
       { expiresIn: '1h' }
     );
 

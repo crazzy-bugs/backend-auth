@@ -2,6 +2,14 @@
 
 ## Can someone check this issue i am having with the command:
 curl -X POST http://localhost:5000/api/login -H "Content-Type: application/json" -d '{"username": "deep", "password": "deep123"}'
+![image](https://github.com/user-attachments/assets/af1e010e-f049-40b0-8494-d837db1cca55)
+
+## No Collections Showing
+![image](https://github.com/user-attachments/assets/927e9612-80a5-4fe3-90af-340c830a85c2)
+
+![image](https://github.com/user-attachments/assets/5a17ae37-f5c1-49bb-8324-f3148d11fad1)
+
+
 
 ### Possible checks:
 - **1.Database name** 
